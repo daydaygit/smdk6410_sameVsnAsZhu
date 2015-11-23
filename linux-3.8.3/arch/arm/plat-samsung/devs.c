@@ -961,7 +961,7 @@ static struct resource s3c_nand_resource[] = {
 };
 
 struct platform_device s3c_device_nand = {
-	.name		= "s3c2410-nand",
+	.name		= "s3c6410-nand",
 	.id		= -1,
 	.num_resources	= ARRAY_SIZE(s3c_nand_resource),
 	.resource	= s3c_nand_resource,
@@ -1024,6 +1024,7 @@ void __init s3c_nand_set_platdata(struct s3c2410_platform_nand *nand)
 	 * time then there is little chance the system is going to run.
 	 */
 
+	printk("devs.c s3c_nand_set_platdata()\n");
 	npd = s3c_set_platdata(nand, sizeof(struct s3c2410_platform_nand),
 				&s3c_device_nand);
 	if (!npd)
